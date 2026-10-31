@@ -1537,6 +1537,8 @@ textarea.form-control {
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  overscroll-behavior: contain;
+  touch-action: none;
 }
 
 .lightbox-modal.active {
@@ -1545,14 +1547,17 @@ textarea.form-control {
 
 .lightbox-content {
   position: relative;
+  width: 100%;
   max-width: 90vw;
   max-height: 85vh;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .lightbox-content img {
+  width: auto;
   max-width: 100%;
   max-height: 75vh;
   object-fit: contain;
@@ -1792,6 +1797,48 @@ textarea.form-control {
     grid-template-columns: 1fr;
   }
 
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-grid > *,
+  .contact-grid > * {
+    min-width: 0;
+  }
+
+  .about-badges {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-badge-item {
+    min-width: 0;
+  }
+
+  .contact-item-text {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .form-row-2,
+  .form-group {
+    min-width: 0;
+  }
+
+  .form-control {
+    min-width: 0;
+  }
+
+  .footer-links-group,
+  .footer-col {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .footer-col a {
+    overflow-wrap: anywhere;
+  }
+
   .gallery-card {
     grid-column: span 12 !important;
     aspect-ratio: 16 / 10;
@@ -1825,5 +1872,39 @@ textarea.form-control {
   .lightbox-prev,
   .lightbox-next {
     display: none;
+  }
+
+  .lightbox-modal {
+    padding: 4rem 1rem 1rem;
+  }
+
+  .lightbox-content {
+    max-width: 100%;
+    max-height: calc(100vh - 5rem);
+    max-height: calc(100dvh - 5rem);
+  }
+
+  .lightbox-content img {
+    max-height: calc(100vh - 11rem);
+    max-height: calc(100dvh - 11rem);
+  }
+
+  .lightbox-caption {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .lightbox-close {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .about-badges {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

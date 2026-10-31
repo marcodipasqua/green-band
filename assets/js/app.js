@@ -45,6 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxPrev = document.getElementById('lightbox-prev');
   const lightboxNext = document.getElementById('lightbox-next');
 
+  function syncLightboxViewport() {
+    const viewport = window.visualViewport;
+    if (!lightbox || !viewport || !lightbox.classList.contains('active')) return;
+
+    lightbox.style.width = `${viewport.width}px`;
+    lightbox.style.height = `${viewport.height}px`;
+    lightbox.style.left = `${viewport.offsetLeft}px`;
+    lightbox.style.top = `${viewport.offsetTop}px`;
+  }
+
+  window.visualViewport?.addEventListener('resize', syncLightboxViewport);
+  window.visualViewport?.addEventListener('scroll', syncLightboxViewport);
+
   // Dedicated member photo albums (curated live shots per member)
   const membersData = {
     marco: {
@@ -143,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentIndex = Math.max(0, Math.min(index, set.length - 1));
     renderLightbox();
     lightbox.classList.add('active');
+    syncLightboxViewport();
     document.body.style.overflow = 'hidden';
   }
 
@@ -204,14 +218,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Touch Swipe gesture for mobile
     let touchStartX = 0;
-    let touchEndX = 0;
     lightbox.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
+      if (e.changedTouches.length !== 1) return;
+      touchStartX = e.changedTouches[0].clientX;
     }, { passive: true });
 
     lightbox.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      const diff = touchEndX - touchStartX;
+      if (e.changedTouches.length !== 1) return;
+      const diff = e.changedTouches[0].clientX - touchStartX;
       if (Math.abs(diff) > 40) {
         if (diff < 0) nextLightbox();
         else prevLightbox();
