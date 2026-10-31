@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posizione Marco nella Card in Home</title>
+<style>
+body { background: #0c0e0c; color: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 25px; margin: 0; }
+h1 { color: #00ff66; text-align: center; margin-bottom: 8px; font-size: 24px; }
+p.intro { text-align: center; color: #aaa; margin-bottom: 30px; font-size: 14px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 1300px; margin: 0 auto; }
+.card { background: #161a16; border: 1px solid #283328; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
+.card:hover { transform: translateY(-4px); border-color: #00ff66; box-shadow: 0 10px 25px rgba(0,255,102,0.15); }
+.wrap { position: relative; width: 100%; aspect-ratio: 4 / 4.5; overflow: hidden; background: #000; }
+.wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(15, 17, 15, 0.95) 100%); pointer-events: none; }
+.info { padding: 14px; flex-grow: 1; text-align: center; }
+.tag { display: inline-block; padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+.tag-old { background: rgba(255, 80, 80, 0.2); color: #ff6666; border: 1px solid rgba(255, 80, 80, 0.4); }
+.tag-fav { background: rgba(0, 255, 102, 0.25); color: #00ff66; border: 1px solid rgba(0, 255, 102, 0.5); }
+.info h3 { margin: 0 0 5px; font-size: 16px; color: #fff; }
+.info p { font-size: 12px; color: #aaa; margin: 0; line-height: 1.4; }
+</style>
+</head>
+<body>
+<h1>Posizione di Marco nella Card (Senza Cliccare)</h1>
+<p class="intro">Tutte le opzioni sono mostrate esattamente nel riquadro 4:4.5 con la sfumatura scura inferiore della Home</p>
+
+<div class="grid">
+  <!-- 1. Prima (Bassa) -->
+  <div class="card">
+    <div class="wrap">
+      <img src="assets/img/members/marco_penza_sky.jpg" style="object-position: center top;">
+      <div class="overlay"></div>
+    </div>
+    <div class="info">
+      <span class="tag tag-old">Come si vedeva prima</span>
+      <h3>1. Posizione Top (Bassa)</h3>
+      <p>C'è troppo cielo in alto, per cui viso e busto scivolano verso il basso finendo sotto la sfumatura.</p>
+    </div>
+  </div>
+
+  <!-- 2. Taglio A: Rialzato & Dito Visibile -->
+  <div class="card">
+    <div class="wrap">
+      <img src="assets/img/members/marco_card_opt_a.jpg">
+      <div class="overlay"></div>
+    </div>
+    <div class="info">
+      <span class="tag tag-fav">Consigliata · Equilibrio Perfetto</span>
+      <h3>2. Taglio Rialzato A</h3>
+      <p>Tolto lo spazio vuoto in cima. Il viso sale nella metà superiore, la cravatta e la chitarra sono visibili e la mano alzata resta tutta inquadrata.</p>
+    </div>
+  </div>
+
+  <!-- 3. Taglio B: Viso in Primo Piano -->
+  <div class="card">
+    <div class="wrap">
+      <img src="assets/img/members/marco_card_opt_b.jpg">
+      <div class="overlay"></div>
+    </div>
+    <div class="info">
+      <span class="tag tag-fav">Viso Alto & Vicino</span>
+      <h3>3. Taglio Rialzato B (Più Alto)</h3>
+      <p>Marco ancora più in alto e ravvicinato: viso centrato nella fascia alta, massima presenza ed espressione in risalto.</p>
+    </div>
+  </div>
+
+  <!-- 4. CSS Shift 40% -->
+  <div class="card">
+    <div class="wrap">
+      <img src="assets/img/members/marco_penza_sky.jpg" style="object-position: center 40%;">
+      <div class="overlay"></div>
+    </div>
+    <div class="info">
+      <span class="tag">Inquadratura Media (40%)</span>
+      <h3>4. Shift 40%</h3>
+      <p>Spostamento intermedio verso il basso dell'inquadratura per alzare il busto.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

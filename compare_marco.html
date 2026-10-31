@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confronto Foto Marco - Green Band</title>
+<style>
+body { background: #0c0e0c; color: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 25px; margin: 0; }
+h1 { color: #00ff66; text-align: center; margin-bottom: 8px; font-size: 26px; }
+p.intro { text-align: center; color: #aaa; margin-bottom: 30px; font-size: 15px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; }
+.card { background: #161a16; border: 1px solid #283328; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
+.card:hover { transform: translateY(-4px); border-color: #00ff66; box-shadow: 0 10px 25px rgba(0,255,102,0.15); }
+.img-wrap { width: 100%; aspect-ratio: 4 / 4.8; overflow: hidden; background: #000; position: relative; }
+.img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.center-guide { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: rgba(0, 255, 102, 0.35); pointer-events: none; }
+.info { padding: 16px; flex-grow: 1; }
+.info h3 { margin: 0 0 8px; font-size: 17px; color: #fff; }
+.tag { display: inline-block; padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+.tag-fav { background: rgba(0, 255, 102, 0.25); color: #00ff66; border: 1px solid rgba(0, 255, 102, 0.5); }
+.tag-new { background: rgba(60, 140, 255, 0.25); color: #66b3ff; border: 1px solid rgba(60, 140, 255, 0.4); }
+.info p { font-size: 13px; color: #aaa; line-height: 1.5; margin: 0; }
+</style>
+</head>
+<body>
+<h1>Confronto Scatti Live per Marco</h1>
+<p class="intro">Tutti i migliori scatti 100% Live in azione (la linea verde sottile mostra la perfetta mezzeria orizzontale)</p>
+
+<div class="grid">
+  <!-- 1. Instagram Ricentrata al millimetro -->
+  <div class="card">
+    <div class="img-wrap">
+      <img src="assets/img/members/marco_penza_sky.jpg?v=2" alt="Penza Braccio al Cielo Ricentrata">
+      <div class="center-guide"></div>
+    </div>
+    <div class="info">
+      <span class="tag tag-fav">👑 Instagram (Ora Ricentrata al 50%)</span>
+      <h3>1. Penza · Braccio al Cielo</h3>
+      <p><strong>Occhio clinico perfetto:</strong> prima eri a X=245 su 418 (spostato a destra). Ora è ritagliata eliminando i vasi a sinistra: il tuo busto, cravatta e mano sono <strong>esattamente sull'asse centrale</strong>! Carisma puro da frontman.</p>
+    </div>
+  </div>
+
+  <!-- 2. Abbey Road Canto Grinta -->
+  <div class="card">
+    <div class="img-wrap">
+      <img src="assets/img/members/marco_abbey_crop.jpg" alt="Abbey Road Grinta">
+      <div class="center-guide"></div>
+    </div>
+    <div class="info">
+      <span class="tag tag-fav">🔥 Grinta Punk Assoluta</span>
+      <h3>2. Abbey Road · Canto a Squarciagola</h3>
+      <p>Canti a pieni polmoni al microfono con la chitarra TV Yellow, cravatta rossa e sfondo Black Sabbath. Trasmette l'impatto sonoro e l'energia dello show.</p>
+    </div>
+  </div>
+
+  <!-- 3. Penza Live LB Nuova Allegata -->
+  <div class="card">
+    <div class="img-wrap">
+      <img src="assets/img/members/marco_penza_warm.jpg" alt="Penza Warm LB">
+      <div class="center-guide"></div>
+    </div>
+    <div class="info">
+      <span class="tag tag-new">✨ Nuova Allegata Penza LB</span>
+      <h3>3. Penza Live · Luci Magenta & Canto</h3>
+      <p>Ritagliata sul tuo mezzobusto dalla foto ad alta risoluzione LB Photography: chitarra, voce al microfono, luci magenta calde e parete in pietra.</p>
+    </div>
+  </div>
+
+  <!-- 4. Freqency Outfit Punk -->
+  <div class="card">
+    <div class="img-wrap">
+      <img src="assets/img/members/marco_freq_solo.jpg" alt="Freqency Solo">
+      <div class="center-guide"></div>
+    </div>
+    <div class="info">
+      <span class="tag tag-new">⚡ Outfit Punk American Idiot</span>
+      <h3>4. Freqency · Figura Intera</h3>
+      <p>Total black con spillette, cravatta rossa, TV Yellow e creepers. Molto curata nell'abbigliamento e nello stile di Billie Joe.</p>
+    </div>
+  </div>
+
+  <!-- 5. Luce Blu -->
+  <div class="card">
+    <div class="img-wrap">
+      <img src="assets/img/members/marco_blue_centered.jpg" alt="Luce Blu">
+      <div class="center-guide"></div>
+    </div>
+    <div class="info">
+      <span class="tag tag-new">🎸 Luce Blu Club</span>
+      <h3>5. Club Session · Luce Blu</h3>
+      <p>Centrata perfettamente con Stratocaster a tracolla e microfono in atmosfera notturna.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

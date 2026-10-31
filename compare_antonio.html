@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confronto Foto Antonio - Green Band</title>
+<style>
+body { background: #0c0e0c; color: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 25px; margin: 0; }
+h1 { color: #00ff66; text-align: center; margin-bottom: 8px; font-size: 24px; }
+p.intro { text-align: center; color: #aaa; margin-bottom: 30px; font-size: 14px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+.card { background: #161a16; border: 1px solid #283328; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+.wrap { position: relative; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; background: #000; }
+.wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.info { padding: 16px; }
+.tag { display: inline-block; padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+.tag-fav { background: rgba(0, 255, 102, 0.25); color: #00ff66; border: 1px solid rgba(0, 255, 102, 0.5); }
+.tag-raw { background: rgba(100, 150, 255, 0.2); color: #88b0ff; border: 1px solid rgba(100, 150, 255, 0.4); }
+.info h3 { margin: 0 0 6px; font-size: 17px; color: #fff; }
+.info p { font-size: 13px; color: #aaa; margin: 0; line-height: 1.4; }
+</style>
+</head><body>
+<h1>Foto 2 Antonio: Ritaglio e Sfumatura Batterista</h1>
+<p class="intro">Antonio perfettamente centrato in formato 4:5 per il Lightbox</p>
+
+<div class="grid">
+  <!-- Con sfumatura dello sfondo / batterista -->
+  <div class="card">
+    <div class="wrap">
+      <img src="assets/img/members/antonio_penza_live.jpg?v=1" alt="Antonio Centrato con Sfumatura">
+    </div>
+    <div class="info">
+      <span class="tag tag-fav">Consigliata · Antonio Centrato & Batterista Sfumato</span>
+      <h3>Antonio Centrato con Effetto Bokeh</h3>
+      <p>Antonio (viso, cappellino, maglia Bukowski e basso rosso) rimane <strong>100% nitido</strong>, mentre il batterista, piatti e fusto della batteria sullo sfondo sono <strong>sfumati dolcemente</strong> con effetto profondità di campo.</p>
+    </div>
+  </div>
+
+  <!-- Senza sfumatura -->
+  <div class="card">
+    <div class="wrap">
+      <img src="assets/img/members/antonio_penza_crop_clean.jpg" alt="Antonio Centrato Senza Sfumatura">
+    </div>
+    <div class="info">
+      <span class="tag tag-raw">Solo Ritaglio Centrato</span>
+      <h3>Antonio Centrato (Senza Sfumatura)</h3>
+      <p>Ritaglio centrato su Antonio ma con il batterista e i piatti ancora a fuoco nello sfondo a destra.</p>
+    </div>
+  </div>
+</div>
+</body></html>
