@@ -464,7 +464,7 @@ img {
 
 /* Section Common */
 .section {
-  padding: 6rem 0;
+  padding: 4.5rem 0;
   position: relative;
 }
 
@@ -477,7 +477,7 @@ img {
 .section-header {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 3.5rem;
+  margin: 0 auto 2.5rem;
 }
 
 .section-label {
@@ -611,7 +611,7 @@ img {
 /* Members Grid */
 .members-section-title {
   text-align: center;
-  margin: 5rem auto 2.5rem;
+  margin: 3.5rem auto 2rem;
 }
 
 .members-grid {
@@ -1271,8 +1271,8 @@ img {
 /* Setlist / Repertorio */
 .setlist-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
 }
 
 .setlist-col {
@@ -1283,15 +1283,36 @@ img {
   transition: var(--transition);
 }
 
+.setlist-col[open] {
+  border-color: var(--border-glow);
+}
+
 .setlist-col:hover {
   border-color: var(--border-glow);
   transform: translateY(-4px);
 }
 
 .setlist-col-header {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  color: #ffffff;
+}
+
+.setlist-col-header::marker {
+  color: var(--punk-green);
+  font-size: 1.1em;
+}
+
+.setlist-col[open] .setlist-col-header {
   border-bottom: 1px solid var(--border-subtle);
   padding-bottom: 1rem;
   margin-bottom: 1.25rem;
+}
+
+.setlist-col-header:focus-visible {
+  outline: 2px solid var(--punk-green);
+  outline-offset: 4px;
 }
 
 .setlist-col-tag {
@@ -1308,9 +1329,11 @@ img {
 
 .song-list {
   list-style: none;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.55rem;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .song-item {
@@ -1325,13 +1348,6 @@ img {
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: var(--transition);
-}
-
-.song-item:hover {
-  background: rgba(0, 255, 102, 0.08);
-  border-color: rgba(0, 255, 102, 0.35);
-  transform: translateX(4px);
-  color: var(--punk-green);
 }
 
 .song-bullet {
@@ -1729,6 +1745,10 @@ textarea.form-control {
     grid-template-columns: 1fr;
   }
 
+  .song-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .gallery-card-1,
   .gallery-card-2,
   .gallery-card-6,
@@ -1756,6 +1776,14 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 3.25rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
   .nav-menu {
     display: none;
     position: absolute;
@@ -1795,6 +1823,10 @@ textarea.form-control {
 
   .members-grid {
     grid-template-columns: 1fr;
+  }
+
+  .song-list {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .about-grid,

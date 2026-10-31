@@ -133,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentSet = getGalleryData();
   let currentIndex = 0;
+  let lightboxHistoryOpen = false;
 
   function renderLightbox() {
     if (!lightbox || !currentSet || !currentSet[currentIndex]) return;
@@ -152,6 +153,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openLightboxWithSet(set, index = 0) {
     if (!lightbox || !set || set.length === 0) return;
+    if (!lightbox.classList.contains('active')) {
+      const state = history.state && typeof history.state === 'object' ? history.state : {};
+      history.pushState({ ...state, greenBandLightbox: true }, '', window.location.href);
+      lightboxHistoryOpen = true;
+    }
     currentSet = set;
     currentIndex = Math.max(0, Math.min(index, set.length - 1));
     renderLightbox();
@@ -160,10 +166,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = 'hidden';
   }
 
-  function closeLightbox() {
+  function closeLightbox(fromHistory = false) {
     if (!lightbox) return;
+    const restoreHistory = lightboxHistoryOpen && !fromHistory;
+    lightboxHistoryOpen = false;
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
+    if (restoreHistory) history.back();
   }
 
   function nextLightbox() {
@@ -205,9 +214,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightboxClose) lightboxClose.addEventListener('click', () => closeLightbox());
   if (lightboxNext) lightboxNext.addEventListener('click', nextLightbox);
   if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightbox);
+
+  window.addEventListener('popstate', (event) => {
+    if (!lightbox) return;
+    if (event.state?.greenBandLightbox) {
+      if (!lightbox.classList.contains('active') && currentSet.length > 0) {
+        lightbox.classList.add('active');
+        syncLightboxViewport();
+        document.body.style.overflow = 'hidden';
+      }
+      lightboxHistoryOpen = lightbox.classList.contains('active');
+      return;
+    }
+    if (lightbox.classList.contains('active')) closeLightbox(true);
+    else lightboxHistoryOpen = false;
+  });
 
   if (lightbox) {
     lightbox.addEventListener('click', (e) => {

@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Permanent+Marker&display=swap" rel="stylesheet">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css?v=mobile-lightbox-2">
+  <link rel="stylesheet" href="assets/css/style.css?v=setlist-single-accordion-1">
   <link rel="stylesheet" href="assets/css/albums.css">
 </head>
 <body>
@@ -507,11 +507,11 @@
 
       <div class="setlist-grid">
         <!-- Colonna 1: 10 Brani -->
-        <div class="setlist-col">
-          <div class="setlist-col-header">
+        <details class="setlist-col" name="setlist">
+          <summary class="setlist-col-header">
             <span class="setlist-col-tag">Setlist Parte 1</span>
             <h3 class="setlist-col-title">Classici & Inni</h3>
-          </div>
+          </summary>
           <ul class="song-list">
             <li class="song-item">
               <span class="song-bullet">⚡</span>
@@ -554,14 +554,14 @@
               <span class="song-name">Good Riddance</span>
             </li>
           </ul>
-        </div>
+        </details>
 
         <!-- Colonna 2: 10 Brani -->
-        <div class="setlist-col">
-          <div class="setlist-col-header">
+        <details class="setlist-col" name="setlist">
+          <summary class="setlist-col-header">
             <span class="setlist-col-tag">Setlist Parte 2</span>
             <h3 class="setlist-col-title">90s Punk & Dookie</h3>
-          </div>
+          </summary>
           <ul class="song-list">
             <li class="song-item">
               <span class="song-bullet">⚡</span>
@@ -604,14 +604,14 @@
               <span class="song-name">Minority</span>
             </li>
           </ul>
-        </div>
+        </details>
 
         <!-- Colonna 3: 9 Brani -->
-        <div class="setlist-col">
-          <div class="setlist-col-header">
+        <details class="setlist-col" name="setlist">
+          <summary class="setlist-col-header">
             <span class="setlist-col-tag">Setlist Parte 3</span>
             <h3 class="setlist-col-title">Punk Rock Epics</h3>
-          </div>
+          </summary>
           <ul class="song-list">
             <li class="song-item">
               <span class="song-bullet">⚡</span>
@@ -650,7 +650,7 @@
               <span class="song-name">2000 light years away</span>
             </li>
           </ul>
-        </div>
+        </details>
       </div>
     </div>
   </section>
@@ -859,6 +859,6 @@
 
   <!-- Scripts -->
   <script src="assets/js/calendar.js"></script>
-  <script src="assets/js/app.js?v=lightbox-swipe-2"></script>
+  <script src="assets/js/app.js?v=lightbox-history-2"></script>
 </body>
 </html>
